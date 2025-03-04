@@ -6,7 +6,6 @@ Ensure you have the following installed:
 - **Node.js & npm**  
 - **Go** (for chaincode development)  
 - **Fabric Prerequisites** ([List from Hyperledger Docs](https://hyperledger-fabric.readthedocs.io/en/latest/prereqs.html))  
-- **Fabric Binaries** ([Download from Hyperledger Docs](https://hyperledger-fabric.readthedocs.io/en/latest/install.html))  
 
 ---
 
