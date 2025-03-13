@@ -14,18 +14,22 @@ Ensure you have the following installed:
 
 Download the chaincode, test scripts, and resources install script from github:
 ```bash
-git clone https://github.com/ethan-dean/uni-ledger.git && cd uni-ledger && chmod +x install-fabric.sh
+git clone https://github.com/ethan-dean/uni-ledger.git && cd uni-ledger
 ```
 
-Run the script with below settings(docker images v2.5, binaries v2.5):
-Run the script with the -h option to see other options, such as versioning or selecting which downloads you get.
+Make sure the script is executable:
+```bash
+chmod +x install-fabric.sh
+```
+
+Run the install script with options below:
 ```bash
 ./install-fabric.sh --fabric-version 2.5.11 --ca-version 1.5.15 docker binary 
 ```
 
 ---
 
-## **3️⃣  Launch Test Blockchain Network and Implement Smart Contract**
+## **3️⃣  Launch Test Blockchain Network and Deploy Smart Contract**
 Switch to the network folder:
 ```bash
 cd fabric-samples/test-network
