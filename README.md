@@ -48,7 +48,7 @@ Deploy the certificate chaincode(ccn=cc-name, ccp=cc-path, ccl=cc-language):
 
 ---
 
-## **5️⃣ CCreate API for Universities & Employers**
+## **5️⃣ Create API for Universities & Employers**
 
 Install dependencies:
 ```bash
