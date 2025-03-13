@@ -25,16 +25,16 @@ Run the script with the -h option to see other options, such as versioning or se
 
 ---
 
-## **3️⃣  Launch Blockchain Network and Implement Smart Contract**
+## **3️⃣  Launch Test Blockchain Network and Implement Smart Contract**
 Switch to the network folder:
 ```bash
 cd fabric-samples/test-network
 ```
 
-Clean start the Fabric network (default channel name "mychannel"):
+Clean start the Fabric network (use default channel name "mychannel"):
 ```bash
 ./network.sh down
-./network.sh up createChannel -c degree-channel -ca
+./network.sh up createChannel -c mychannel -ca
 ```
 
 Deploy the certificate chaincode(ccn=cc-name, ccp=cc-path, ccl=cc-language):
