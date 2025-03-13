@@ -34,12 +34,12 @@ cd fabric-samples/test-network
 Clean start the Fabric network (default channel name "mychannel"):
 ```bash
 ./network.sh down
-./network.sh up createChannel -c degreeChannel -ca
+./network.sh up createChannel -c degree-channel -ca
 ```
 
 Deploy the certificate chaincode(ccn=cc-name, ccp=cc-path, ccl=cc-language):
 ```bash
-./network.sh deployCC -ccn basic -ccp ../../chaincode/src -ccl typescript
+./network.sh deployCC -ccn degree-chaincode -ccp ../../chaincode/src -ccl typescript
 ```
 
 ---
