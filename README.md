@@ -11,15 +11,10 @@ Ensure you have the following installed:
 ---
 
 ## **2️⃣ Set Up the Fabric Network**
-Create your new project directory:
-```bash
-mkdir uni-ledger
-cd uni-ledger
-```
 
-Download the install script from github:
+Download the chaincode, test scripts, and resources install script from github:
 ```bash
-git clone https://github.com/ethan-dean/uni-ledger.git && chmod +x install-fabric.sh
+git clone https://github.com/ethan-dean/uni-ledger.git && cd uni-ledger && chmod +x install-fabric.sh
 ```
 
 Run the script with below settings(docker images v2.5, binaries v2.5):
