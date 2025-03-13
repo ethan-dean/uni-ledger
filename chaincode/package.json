@@ -1,7 +1,7 @@
 {
-    "name": "asset-transfer-basic",
+    "name": "degree-contract",
     "version": "1.0.0",
-    "description": "Asset Transfer Basic contract implemented in TypeScript",
+    "description": "Degree Contract implemented in TypeScript",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
     "engines": {
@@ -15,7 +15,7 @@
         "build": "tsc",
         "build:watch": "tsc -w",
         "prepublishOnly": "npm run build",
-        "docker": "docker build -f ./Dockerfile -t asset-transfer-basic .",
+        "docker": "docker build -f ./Dockerfile -t degree-contract .",
         "package": "npm run build && npm shrinkwrap",
         "start:server-nontls": "set -x && fabric-chaincode-node server --chaincode-address=$CHAINCODE_SERVER_ADDRESS --chaincode-id=$CHAINCODE_ID",
         "start:server-debug": "set -x && NODE_OPTIONS='--inspect=0.0.0.0:9229' fabric-chaincode-node server --chaincode-address=$CHAINCODE_SERVER_ADDRESS --chaincode-id=$CHAINCODE_ID",
@@ -28,14 +28,14 @@
         "fabric-contract-api": "~2.5",
         "fabric-shim": "~2.5",
         "json-stringify-deterministic": "^1.0.0",
-        "sort-keys-recursive": "^2.1.0"
+        "sort-keys-recursive": "^2.1.0",
+        "@types/node": "^18.19.33",
+        "@tsconfig/node18": "^18.2.4",
+        "typescript": "~5.4.5"
     },
     "devDependencies": {
-        "@types/node": "^18.19.33",
         "@eslint/js": "^9.3.0",
-        "@tsconfig/node18": "^18.2.4",
         "eslint": "^8.57.0",
-        "typescript": "~5.4.5",
         "typescript-eslint": "^7.11.0"
     }
 }
