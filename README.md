@@ -43,16 +43,55 @@ Clean start the Fabric network (use default channel name "mychannel"):
 
 Deploy the certificate chaincode(ccn=cc-name, ccp=cc-path, ccl=cc-language):
 ```bash
-./network.sh deployCC -ccn degree-chaincode -ccp ../../chaincode/src -ccl typescript
+./network.sh deployCC -ccn degree-chaincode -ccp ../../chaincode/ -ccl typescript
 ```
 
 ---
 
 ## **4️⃣  Validate Contract with Fabric Peer API**
 
+After deploying the smart contract, you can test it using the Fabric peer CLI.  
+
+First, set the environment variables for Org1’s peer:  
+
+```bash
+export PATH=${PWD}/../bin:$PATH
+export FABRIC_CFG_PATH=${PWD}/../config/
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID="Org1MSP"
+export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+export CORE_PEER_ADDRESS=localhost:7051
+```
+
+Use the following command to initialize the ledger on the chaincode.
+
+```bash
+peer chaincode invoke \
+  -o localhost:7050 \
+  --ordererTLSHostnameOverride orderer.example.com \
+  --tls \
+  --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
+  -C mychannel \
+  -n degree-chaincode \
+  --peerAddresses localhost:7051 \
+  --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt \
+  --peerAddresses localhost:9051 \
+  --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt \
+  -c '{"function":"InitDegreeLedger","Args":[]}'
+```
+
+After invoking a transaction, you can retrieve data using the `query` command.  
+
+```bash
+peer chaincode query -C mychannel -n degree-chaincode -c '{"function":"ReadDegree","Args":["degree1"]}'
+```
+
+This should return details about the issued certificate.  
+
 ---
 
-## **5️⃣ Create API for Universities & Employers**
+## **5️⃣ Run API for Universities & Employers**
 
 Install dependencies:
 ```bash
