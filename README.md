@@ -93,14 +93,25 @@ This should return details about the issued certificate.
 
 ## **5️⃣ Run API for Universities & Employers**
 
+Switch to the backend directory:
+```bash
+cd ../../backend
+```
+
+Generate environment variables:
+```bash
+npm run generateEnv
+```
+
 Install dependencies:
 ```bash
 npm i
 ```
 
-Start the API:
+Start the REST API:
 ```bash
-npm run start
+npm run build
+node dist/index.js
 ```
 
 ---
