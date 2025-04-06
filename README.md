@@ -117,21 +117,41 @@ node dist/index.js
 ---
 
 ## **6️⃣ Test API Endpoints**
-### **Issue Certificate (Student)**
+### **Initialize Ledger**
 ```http
-POST /requestCertificate
+POST /initialize-ledger
+```
+
+### **Get Degree**
+```http
+GET /get-degree/:id
+```
+
+### **Confer Degree**
+```http
+POST /confer-degree
 Content-Type: application/json
 
 {
-  "studentId": "student1",
-  "name": "John Doe",
-  "course": "Blockchain 101"
+    "id": "degree7",
+    "college": "test college",
+    "program": "test program",
+    "honors": "",
+    "specialization": "",
+    "degreeName": "test degree",
+    "degreeLevel": "test level",
+    "owner": "test person",
+    "year": "2018"
 }
 ```
 
-### **Verify Certificate (Employer)**
+### **Update Accreditation**
 ```http
-GET /verifyCertificate/student1?employerId=employer1
-```
+PUT /update-accreditation
+Content-Type: application/json
 
----
+{
+    "id": "degree7",
+    "accreditation": false
+}
+```
