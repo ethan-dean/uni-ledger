@@ -3,9 +3,7 @@
 ## **1️⃣ Prerequisites**
 Ensure you have the following installed:  
 - **Docker & Docker Compose**  
-- **Node.js & npm** (if chosen for chaincode development)  
-- **Go** (if chosen for chaincode development)  
-- **Java** (if chosen for chaincode development)
+- **Node.js & npm** (for chaincode development)  
 - **Fabric Prerequisites** ([List from Hyperledger Docs](https://hyperledger-fabric.readthedocs.io/en/latest/prereqs.html))  
 
 ---
