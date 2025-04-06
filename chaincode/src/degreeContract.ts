@@ -113,7 +113,7 @@ export class DegreeContract extends Contract {
                                 year: number
     ): Promise<void> {
         // Throws error if client MSP ID not found in map
-        const university = this.GetUniversityName(ctx);
+        const requestingUniversityName: string = this.GetUniversityName(ctx);
 
         const exists = await this.DegreeExists(ctx, id);
         if (exists) {
@@ -122,7 +122,7 @@ export class DegreeContract extends Contract {
 
         const degree: Degree = {
             ID: id,
-            University: university,
+            University: requestingUniversityName,
             College: college,
             Program: program,
             Honors: honors,
@@ -145,7 +145,7 @@ export class DegreeContract extends Contract {
                                             accreditation: boolean
     ): Promise<void> {
         // Throws error if client MSP ID not found in map
-        this.GetUniversityName(ctx);
+        const requestingUniversityName: string = this.GetUniversityName(ctx);
 
         const exists = await this.DegreeExists(ctx, id);
         if (!exists) {
@@ -158,6 +158,9 @@ export class DegreeContract extends Contract {
             throw new Error(`The degree ${id} does not exist`);
         }
         const degree: Degree = JSON.parse(degreeJSON.toString());
+        if (requestingUniversityName !== degree.University) {
+            throw new Error(`The degree ${id} does not originate from university <${requestingUniversityName}>.`);
+        }
 
         // Update only the Accreditation field, preserving all other properties.
         degree.Accreditation = accreditation;
@@ -190,6 +193,8 @@ export class DegreeContract extends Contract {
     private GetUniversityName(ctx: Context): string {
         const mspId = ctx.clientIdentity.getMSPID();
         const universityMap: { [key: string]: string } = {
+            'Org1MSP': 'University of Organization 1 (Test Data – Not Valid)',
+            'Org2MSP': 'University of Organization 2 (Test Data – Not Valid)',
             'UCFMSP': 'University of Central Florida',
             'UFLMSP': 'University of Florida',
             'MITMSP': 'Massachusetts Institute of Technology',
