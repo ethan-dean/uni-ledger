@@ -1,6 +1,5 @@
 # **Uni-Ledger**
 
-## **Summary**
 Uni-Ledger is a proof-of-concept system that utilizes smart contracts written with the Hyperledger Fabric API to create a secure, immutable distributed network for managing student degree records. The system employs chaincode to enable schools to confer degrees, update accreditation statuses, and correct records as necessary, ensuring that any change in a student’s academic standing is permanently recorded on the blockchain. The system is designed for enterprise use on a private, permissioned network, providing a robust platform that not only maintains the integrity of academic records but also streamlines processes with a REST API. This API offers simple HTTP endpoints that allow schools, employers, and students to interact with the blockchain—whether for adding new records, querying existing ones, or verifying credentials.
 
 ## **Purpose**
